@@ -12,6 +12,7 @@
 .movieImage {
     border-radius: 10px;
     background-color: azure;
+    object-fit: cover;
 }
 
 @media (max-width: 560px) {

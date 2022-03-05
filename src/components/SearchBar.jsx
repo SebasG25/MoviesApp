@@ -5,7 +5,7 @@ import styles from '../styles/SearchBar.module.css'
 
 export const SearchBar = () => {
     const query = useQuery()
-    const search = query.get('search')
+    const search = query.get('search') ?? ''
 
     const navigate = useNavigate()
 
@@ -24,7 +24,7 @@ export const SearchBar = () => {
                 <input
                     className={styles.searchInput}
                     type='text'
-                    value={search ?? ''}
+                    value={search}
                     autoFocus
                     placeholder='Search your favorite movie'
                     aria-label='Search Movies'
