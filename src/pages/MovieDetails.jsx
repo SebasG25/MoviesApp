@@ -1,20 +1,26 @@
-import { useEffect, useState } from "react";
-import { useParams } from "react-router";
-import { get } from "../utils/httpClient";
+import { useEffect, useState } from 'react';
+import { useParams } from 'react-router';
+import { get } from '../utils/httpClient';
 import { getMovieImage } from '../utils/getMovieImage'
-import styles from "../styles/MovieDetails.module.css";
+import { Spinner } from '../components/Spinner';
+import styles from '../styles/MovieDetails.module.css'
 
 export const MovieDetails = () => {
-    const { movieId } = useParams();
-    const [movie, setMovie] = useState(null);
+    const { movieId } = useParams()
+    const [movie, setMovie] = useState(null)
+    const [isLoading, setIsLoading] = useState(true)
 
     useEffect(() => {
+        setIsLoading(true)
         get(`/movie/${movieId}`).then(data => {
-            setMovie(data);
+            setMovie(data)
+            setIsLoading(false)
         })
     }, [movieId])
 
-    if (!movie) return null;
+    if (isLoading) return <Spinner />
+
+    if (!movie) return null
 
     const { title, genres, overview, poster_path } = movie
     const imageUrl = getMovieImage(poster_path, 500)
