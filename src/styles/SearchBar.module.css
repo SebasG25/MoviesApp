@@ -28,14 +28,10 @@
     font-size: 1.1rem;
 }
 
-.searchInput::selection {
-    background-color: #f88ec2;
-}
-
 .searchInput:focus {
     outline: none;
     padding-right: 35px;
-    height: 33px;
+    height: 31.5px;
     border: 2px solid #f88ec2;
     box-shadow: 0 0 5px #ebbed4;
 }
