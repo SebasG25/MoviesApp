@@ -1,0 +1,25 @@
+.detailsContainer {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.movieImage {
+    border-radius: 15px;
+    background-color: azure;
+    object-fit: cover;
+    max-width: 300px;
+    margin: 15px;
+}
+
+.movieDetails {
+    font-size: 1.2rem;
+    max-width: 400px;
+    margin: 15px;
+    width: 80%;
+    height: auto;
+}
+
+.movieDetails:first-child {
+    margin-top: 0;
+}
