@@ -19,9 +19,7 @@ export const MovieDetails = () => {
     }, [movieId])
 
     if (isLoading) return <Spinner />
-
-    if (!movie) return null
-
+    
     const { title, genres, overview, poster_path } = movie
     const imageUrl = getMovieImage(poster_path, 500)
 
