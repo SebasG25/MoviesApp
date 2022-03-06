@@ -1,9 +1,12 @@
-import { FaSearch } from 'react-icons/fa'
+import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { FaSearch } from 'react-icons/fa'
 import { useQuery } from "../hooks/useQuery";
 import styles from '../styles/SearchBar.module.css'
 
 export const SearchBar = () => {
+    const [textSearched, setTextSearched] = useState('')
+
     const query = useQuery()
     const search = query.get('search') ?? ''
 
@@ -15,6 +18,7 @@ export const SearchBar = () => {
 
     const handleChangeInput = (e) => {
         const text = e.target.value
+        setTextSearched(text)
         navigate(`/?search=${text}`)
     }
 
@@ -24,7 +28,7 @@ export const SearchBar = () => {
                 <input
                     className={styles.searchInput}
                     type='text'
-                    value={search}
+                    value={textSearched}
                     autoFocus
                     placeholder='Search your favorite movie'
                     aria-label='Search Movies'
